@@ -1,6 +1,11 @@
 {
-    "title":"Blog Title",
-    "subTitle":"Blog description",
-    "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
-    "GMEEK_VERSION":"last"
+    "title":"KH INDA HOUSE",
+    "subTitle":"去有风的地方",
+    "avatarUrl":"https://i.ibb.co/yBgdn2m/image.jpg",
+    "GMEEK_VERSION":"last",
+    "homeUrl":"http://chanforwang.github.io/KH-INDA-HOUSE",
+    "startSite":"03/26/2024",
+    "onePageListNum":15,
+    "dayTheme":"light",
+    "nightTheme":"dark_colorblind"
 }
