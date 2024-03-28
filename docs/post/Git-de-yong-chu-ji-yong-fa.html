@@ -57,6 +57,7 @@
 .postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
 .title-right{display:flex;margin:auto 0 0 auto;}
 .title-right .circle{padding: 14px 16px;margin-right:8px;}
+.PostTime{font-size:1rem;color:#74bbff73;font-weight: bold;}
 #postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
 #postBody hr{height:2px;}
 #cmButton{height:48px;margin-top:48px;}
@@ -75,7 +76,6 @@
     <div id="header">
 <h1 class="postTitle">Git的用处及用法</h1>
 <div class="title-right">
-    
     <a href="https://ChanForWang.github.io"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
         <svg class="octicon" width="16" height="16">
             <path id="pathHome" fill-rule="evenodd"></path>
@@ -99,41 +99,7 @@
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h2>简介</h2>
-<p>很开心，今天终于又又一次上线了自己小Blog，为什么说“又”，因为曾经自己可是从头到尾用Django折腾过一个专属的，奈何因为服务器的羊毛到期了，只能被迫下线，唯有最近偶然机遇发现Github Pages和便捷的Gmeek，可以轻松部署。虽然模板没有像以前的那么花里胡哨，但胜在简单和便捷，可以让我更专注于搭建目的，而不是搭建过程，而不是本末倒置！（虽然我也折腾了一段时间，尝试考虑自定义🤣）</p>
-<p>在折腾的过程中，又再次重新掌握github和git指令，这个过程让我对GitHub的用途之于工作用途有了新的思考和理解。</p>
-<h2>Git指令</h2>
-<p>首先，先简单重温下git指令，主要是方便自己以后重新查看和掌握：<br>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/94a7bf9f-5313-4218-8474-2ae402baba31"><img width="736" alt="git" src="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/94a7bf9f-5313-4218-8474-2ae402baba31" style="max-width: 100%;"></a></p>
-<p>由图可见，总共有4个区域:<br>
-remote代表着远端github仓库;<br>
-repository是本地仓库；<br>
-workspace是正在工作区域；</p>
-<p>一开始，透过 <code class="notranslate">git clone https://xxxxxxx.git</code> 将远端github仓库clone到本地；<br>
-或者在本地初建一个新的仓库 <code class="notranslate">git init</code></p>
-<p>随后，用<code class="notranslate">git add .</code> 将所有workspace的更改添加到index暂存区中，<br>
-随后透过 <code class="notranslate">git commit -m "&lt;message you wanna add&gt;"</code> 来去保存在本地仓库，<br>
-之后再通过 <code class="notranslate">git push origin main</code> 来去把所有更改推送到远端！</p>
-<p>期间可以透过 <code class="notranslate">git status</code> 或 <code class="notranslate">git log</code> 来查看信息</p>
-<p>若果远端发生更改，想同步到本地，则可以用<code class="notranslate">git fetch/pull</code>下来</p>
-<h2>git分支管理</h2>
-<p>这是git很强大的一个功能，可以更好的进行代码的管理，有需要可以查阅资料，这里暂不赘述。</p>
-<h2>git的tag用法</h2>
-<p>在弄本次博客过程中，第一次了解到git的tag标签用法，可以更好的进行代码版本管理，如v1.0，例如重大升级都可透过这个方式去管理自己的代码，形成快照！可回溯。</p>
-<p>查看当前的所有tag： <code class="notranslate">git tag</code>；<br>
-创建新的tag： <code class="notranslate">git tag -a &lt;tagname&gt; -m "&lt;any message&gt;"</code><br>
-推送tag到远端时：<code class="notranslate">git push --tags</code></p>
-<p>删除本地tag： <code class="notranslate">git tag -d &lt;tagname&gt;</code><br>
-删除远端tag： <code class="notranslate">git push origin --delete &lt;tagname&gt;</code></p>
-<p>拉取远端指定tag: <code class="notranslate">git fetch origin tag &lt;tagname&gt;</code><br>
-拉取远端所有tag：<code class="notranslate">git fetch --tags</code></p>
-<h2>对git和github的理解</h2>
-<p>说到这点，其实之前在工作场景中，我一直苦恼于如何更好的备份和管理工作上的文件，特别是一些需要做好版本管理和可追朔的文件。然而，透过这个项目，让我重新认识了github，它的作用可不仅仅只局限于代码管理，我觉得它的可追朔功能，将会为我的文件管理带来巨大帮助！未来可以尝试一下！例如前端时间做的WMS！</p>
-<h2>结语</h2>
-<p>最后，很开心折腾的个人博客上线了，未来希望能利用这个平台，记录更多的所见所思。</p></div>
-<div style="font-size:small;margin-top:8px;float:right;"></div>
-<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
-<div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
 <p>
