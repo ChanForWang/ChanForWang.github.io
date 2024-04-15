@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>INDA HOUSE</title><link>https://ChanForWang.github.io</link><description>去有风的地方</description><copyright>INDA HOUSE</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.ibb.co/dkKbsNN/logo.png</url><title>avatar</title><link>https://ChanForWang.github.io</link></image><lastBuildDate>Sun, 14 Apr 2024 02:24:31 +0000</lastBuildDate><managingEditor>INDA HOUSE</managingEditor><ttl>60</ttl><webMaster>INDA HOUSE</webMaster><item><title>How to customize my personal blog</title><link>https://ChanForWang.github.io/post/How%20to%20customize%20my%20personal%20blog.html</link><description>## Repository: ChanForWang.github.io&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>INDA HOUSE</title><link>https://ChanForWang.github.io</link><description>去有风的地方</description><copyright>INDA HOUSE</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.ibb.co/dkKbsNN/logo.png</url><title>avatar</title><link>https://ChanForWang.github.io</link></image><lastBuildDate>Mon, 15 Apr 2024 08:27:20 +0000</lastBuildDate><managingEditor>INDA HOUSE</managingEditor><ttl>60</ttl><webMaster>INDA HOUSE</webMaster><item><title>How to customize my personal blog</title><link>https://ChanForWang.github.io/post/How%20to%20customize%20my%20personal%20blog.html</link><description>## Repository: ChanForWang.github.io&#13;
 &#13;
 `config.json: update the configuration of the blog， i.e: Name of blog.`&#13;
 &#13;
@@ -26,10 +26,9 @@
 - [ ] 切实思考什么方式可以累积100w&#13;
 - 细分，可执行的&#13;
 &#13;
-- [ ] 成长：时间管理方式：Timeboxing method&#13;
-- 设置deadline：deadline是第一生产力&#13;
-- 任务分轻重缓急排序&#13;
-- 写to do list分两侧，一侧原计划，一侧将会被修改替补的计划，进行对比&#13;
-- 总结：预估时间和实际时间的gap；反思！&#13;
-- 。</description><guid isPermaLink="true">https://ChanForWang.github.io/post/dai-tian-de-%E2%80%9C-keng-%E2%80%9D.html</guid><pubDate>Tue, 09 Apr 2024 01:49:44 +0000</pubDate></item><item><title>如何避免“中产返贫”</title><link>https://ChanForWang.github.io/post/ru-he-bi-mian-%E2%80%9C-zhong-chan-fan-pin-%E2%80%9D.html</link><description>自改革开放以来，无论是第一批下海经商的创业者，亦或是千禧年代乘着房地产东风扶摇直上的房产持有人，还是互联网新时代的弄潮儿，前前后后诞生了无数的中产，他们有幸凭借着自身的努力和时代的眷顾，积累了人生的第一笔财富，成为万千中产大员中的一份子。</description><guid isPermaLink="true">https://ChanForWang.github.io/post/ru-he-bi-mian-%E2%80%9C-zhong-chan-fan-pin-%E2%80%9D.html</guid><pubDate>Sun, 07 Apr 2024 16:10:53 +0000</pubDate></item><item><title>Git的用处及用法</title><link>https://ChanForWang.github.io/post/Git-de-yong-chu-ji-yong-fa.html</link><description>## 简介&#13;
+- [ ] 成长：如何管理时间：Timeboxing method； &#13;
+- 将任务设置dealine时长（dealine是生产）&#13;
+- 分轻重缓急&#13;
+&#13;
+- [ ] 保险的保额多少才够！（危疾、意外、医疗（实报实销）、人寿）。</description><guid isPermaLink="true">https://ChanForWang.github.io/post/dai-tian-de-%E2%80%9C-keng-%E2%80%9D.html</guid><pubDate>Tue, 09 Apr 2024 01:49:44 +0000</pubDate></item><item><title>如何避免“中产返贫”</title><link>https://ChanForWang.github.io/post/ru-he-bi-mian-%E2%80%9C-zhong-chan-fan-pin-%E2%80%9D.html</link><description>自改革开放以来，无论是第一批下海经商的创业者，亦或是千禧年代乘着房地产东风扶摇直上的房产持有人，还是互联网新时代的弄潮儿，前前后后诞生了无数的中产，他们有幸凭借着自身的努力和时代的眷顾，积累了人生的第一笔财富，成为万千中产大员中的一份子。</description><guid isPermaLink="true">https://ChanForWang.github.io/post/ru-he-bi-mian-%E2%80%9C-zhong-chan-fan-pin-%E2%80%9D.html</guid><pubDate>Sun, 07 Apr 2024 16:10:53 +0000</pubDate></item><item><title>Git的用处及用法</title><link>https://ChanForWang.github.io/post/Git-de-yong-chu-ji-yong-fa.html</link><description>## 简介&#13;
 很开心，今天终于又又一次上线了自己小Blog，为什么说“又”，因为曾经自己可是从头到尾用Django折腾过一个专属的，奈何因为服务器的羊毛到期了，只能被迫下线，唯有最近偶然机遇发现Github Pages和便捷的Gmeek，可以轻松部署。</description><guid isPermaLink="true">https://ChanForWang.github.io/post/Git-de-yong-chu-ji-yong-fa.html</guid><pubDate>Thu, 28 Mar 2024 03:36:12 +0000</pubDate></item></channel></rss>
