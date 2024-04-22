@@ -108,69 +108,75 @@
 4.Yes：则检查Outlook是否开启，未开启则帮我先启动再以附件形式发送，并提醒已发送完成！<br>
 5.No：则没事，并提醒已取消发送！</p>
 <p>代码如下：</p>
-<p>`<br>
-import schedule<br>
-import time<br>
-import os<br>
-import tkinter as tk<br>
-from tkinter import messagebox<br>
-import win32com.client as win32<br>
-import psutil</p>
-<p>def show_reminder(msg):<br>
-root = tk.Tk()<br>
-root.withdraw() # 隐藏窗口<br>
-messagebox.showinfo("Notification",msg)<br>
-root.destroy()</p>
-<p>def open_excel():</p>
-<pre class="notranslate"><code class="notranslate">os.startfile(r"C:\Users\James Chan\OneDrive - Pico Group\Desktop\HKGMC-Projects\z.Weekly Schedule-James\Weekly Schedule-James.xlsx")
-</code></pre>
-<p>def send_email():<br>
-# 检查Outlook是否已经打开<br>
-outlook_running = False<br>
-for proc in psutil.process_iter(['name']):<br>
-if proc.info['name'] == 'OLK.EXE': #可透过task manager来查看名称！<br>
-outlook_running = True<br>
-break</p>
-<pre class="notranslate"><code class="notranslate"># 如果Outlook没有运行，启动Outlook(new)
-if not outlook_running:
-    os.startfile(r"C:\Program Files\WindowsApps\Microsoft.OutlookForWindows_1.2024.403.300_x64__8wekyb3d8bbwe\olk.exe")
-    print("Outlook is not running. Starting Outlook...")
-    # 等待Outlook启动，这里假设Outlook启动需要大约10秒
-    time.sleep(10)
+<pre class="notranslate"><code class="notranslate">import schedule
+import time
+import os
+import tkinter as tk
+from tkinter import messagebox
+import win32com.client as win32
+import psutil
 
-try:
-    outlook = win32.Dispatch('outlook.application')
-    mail = outlook.CreateItem(0)
-    mail.Subject = 'Weekly Schedule Testing'
-    mail.Body = 'Dear Josephine,\n\nAttached please find my latest weekly schedule, thanks.\n\nBest Regards\nJames Chan'
-    mail.To = 'josephine.tsang@pico.com'
-    mail.CC = 'james.chan@pico.com'
-    mail.Attachments.Add(r"C:\Users\James Chan\OneDrive - Pico Group\Desktop\HKGMC-Projects\z.Weekly Schedule-James\Weekly Schedule-James.xlsx")
-    mail.Send()
-except Exception as e:
-    print(f"Failed to send email: {e}")
+def show_reminder(msg):
+    root = tk.Tk()
+    root.withdraw() # 隐藏窗口
+    messagebox.showinfo("Notification",msg)
+    root.destroy()
+
+def open_excel():
+    os.startfile(r"C:\Users\James Chan\OneDrive - Pico Group\Desktop\HKGMC-Projects\z.Weekly Schedule-James\Weekly Schedule-James.xlsx")
+
+def send_email():
+    # 检查Outlook是否已经打开
+    outlook_running = False
+    for proc in psutil.process_iter(['name']):
+        if proc.info['name'] == 'OLK.EXE': #可透过task manager来查看名称！
+            outlook_running = True
+            break
+
+    # 如果Outlook没有运行，启动Outlook(new)
+    if not outlook_running:
+        os.startfile(r"C:\Program Files\WindowsApps\Microsoft.OutlookForWindows_1.2024.403.300_x64__8wekyb3d8bbwe\olk.exe")
+        print("Outlook is not running. Starting Outlook...")
+        # 等待Outlook启动，这里假设Outlook启动需要大约10秒
+        time.sleep(10)
+
+    try:
+        outlook = win32.Dispatch('outlook.application')
+        mail = outlook.CreateItem(0)
+        mail.Subject = 'Weekly Schedule Testing'
+        mail.Body = 'Dear Josephine,\n\nAttached please find my latest weekly schedule, thanks.\n\nBest Regards\nJames Chan'
+        mail.To = 'josephine.tsang@pico.com'
+        mail.CC = 'james.chan@pico.com'
+        mail.Attachments.Add(r"C:\Users\James Chan\OneDrive - Pico Group\Desktop\HKGMC-Projects\z.Weekly Schedule-James\Weekly Schedule-James.xlsx")
+        mail.Send()
+
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
+def show_2nd_reminder_and_send_email():
+    root = tk.Tk()
+    root.withdraw()
+    response = messagebox.askyesno("提醒", "是否发送邮件给Jo？")
+    root.destroy()
+    if response:
+        send_email()
+        show_reminder("已发送完成！")
+    else:
+        show_reminder("已取消发送！")
+
+def job():
+    # 这里放置你的任务代码
+    show_reminder("记得发送本周weekly schedule")
+    open_excel()
+    time.sleep(5)  # 等待5秒
+    show_2nd_reminder_and_send_email()
+
+schedule.every().thursday.at("14:30").do(job)
+while True:
+    schedule.run_pending()
+    time.sleep(21600) #每隔6小时检查一次：6*60*60s；不用担心当时间到了1430，而程序还在sleep中不执行，因为run_pending解决了这个事！
+
 </code></pre>
-<p>def show_2nd_reminder_and_send_email():<br>
-root = tk.Tk()<br>
-root.withdraw()<br>
-response = messagebox.askyesno("提醒", "是否发送邮件给Jo？")<br>
-root.destroy()<br>
-if response:<br>
-send_email()<br>
-show_reminder("已发送完成！")<br>
-else:<br>
-show_reminder("已取消发送！")</p>
-<p>def job():<br>
-# 这里放置你的任务代码<br>
-show_reminder("记得发送本周weekly schedule")<br>
-open_excel()<br>
-time.sleep(5)  # 等待5秒<br>
-show_2nd_reminder_and_send_email()</p>
-<p>schedule.every().thursday.at("14:30").do(job)<br>
-while True:<br>
-schedule.run_pending()<br>
-time.sleep(21600) #每隔6小时检查一次：6<em>60</em>60s；不用担心当时间到了1430，而程序还在sleep中不执行，因为run_pending解决了这个事！</p>
-<p>`</p>
 <p>代码部分是完成了，但由于这只是个python script，无法做到24小时全天候监听事件发生，除非一直打开并运行这个python.py；<br>
 但显然这样的做法太傻！</p>
 <p>所以经过一番研究，本想采用windows的service来后台执行，但一直报错，所以摒弃这个方式，并采取第二种曲线救国方式：<br>

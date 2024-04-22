@@ -11,7 +11,7 @@
 
 代码如下：
 
-`
+```
 import schedule
 import time
 import os
@@ -27,7 +27,6 @@ def show_reminder(msg):
     root.destroy()
 
 def open_excel():
-
     os.startfile(r"C:\Users\James Chan\OneDrive - Pico Group\Desktop\HKGMC-Projects\z.Weekly Schedule-James\Weekly Schedule-James.xlsx")
 
 def send_email():
@@ -54,6 +53,7 @@ def send_email():
         mail.CC = 'james.chan@pico.com'
         mail.Attachments.Add(r"C:\Users\James Chan\OneDrive - Pico Group\Desktop\HKGMC-Projects\z.Weekly Schedule-James\Weekly Schedule-James.xlsx")
         mail.Send()
+
     except Exception as e:
         print(f"Failed to send email: {e}")
 
@@ -80,7 +80,7 @@ while True:
     schedule.run_pending()
     time.sleep(21600) #每隔6小时检查一次：6*60*60s；不用担心当时间到了1430，而程序还在sleep中不执行，因为run_pending解决了这个事！
 
-`
+```
 
 代码部分是完成了，但由于这只是个python script，无法做到24小时全天候监听事件发生，除非一直打开并运行这个python.py；
 但显然这样的做法太傻！
