@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light" lang= "zh-CN" >
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
+
+    <!-- Music Player-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+
+
+    <script>
+        if (localStorage.getItem("meek_theme") == null) {} else if (localStorage.getItem("meek_theme") == "dark") {
+            document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value = "dark";
+        } else if (localStorage.getItem("meek_theme") == "light") {
+            document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value = "light";
+        }
+    </script>
+    
+<meta name="description" content="投资理财，是为了什么">
+<title>投资理财，是为了什么</title>
+
+
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 45px;
+        font-size: 16px;
+        font-family: sans-serif;
+        line-height: 1.25;
+    }
+    
+    #header {
+        display: flex;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
+        margin-bottom: 16px;
+    }
+    
+    #footer {
+        margin-top: 64px;
+        text-align: center;
+        font-size: small;
+    }
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+.PostTime{font-size:1rem;color:#74bbff73;font-weight: bold;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">投资理财，是为了什么</h1>
+<div class="title-right">
+    <a href="https://ChanForWang.github.io"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </button></a>
+
+    
+    <a href="https://github.com/ChanForWang/ChanForWang.github.io/issues/10" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </button></a>
+    
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>之前，看到一篇公众号，提出一个很好的问题：你投资理财，到底是为了什么？！<br>
+也许你会说，这不废话嘛，当然是为了财富自由，早日退休吖！</p>
+<p>这个回答表面乍一看没啥问题，但事实上，这样的回答是十分的含糊不清，让人摸不着头脑的（答案缺失焦点，压根不知要干嘛，换句话说，不知道如何执行和实现这所谓“目标”）。因为每个人对财富自由的定义都是不同的，那到底多少才能满足你心中“自由”的那个度呢？又该如何一步步去实现它呢？</p>
+<p>作者提出一个很好理解的比喻，这就像跑马拉松，你会去跑一场不知道终点目标的马拉松吗？没有目标，没有阶段性的check point，我们压根不知道自己跑的如何，所以只有在确切目标下，如20km，我们才懂得去提前规划每一程的体力分配，每一个check point的小目标如何。整件事就会不言而喻的变得清晰起来。</p>
+<p>同理，投资理财也是一样，要想避免这种抽象的概念，我们最好借用之前介绍过的SMART原则来去制定一个清晰，可行，且相关的目标！</p>
+<p>然后对于我个人而言，我曾经也一度以财富自由，早日退休来标榜自己的理财目的，但现阶段的我会更加的“贴地”，让目标更清晰：<br>
+<strong>1.假设失业，能有一笔应急资金，可以覆盖掉自己的6个月的必要支出；--应急储备金<br>
+2.若果发生天灾人祸，能有足够的保险保障，覆盖这些生活的突发意外和风险；--保险<br>
+3.建立被动收入渠道，形成收入冗余，避免失业风险；--被动收入<br>
+4.资产保值和增值！</strong></p>
+<h3>应急储备金(BOC)</h3>
+<p>参照建议，一般应急储备金的数额能够满足覆盖自己3~6个月的必要支出就足矣，因为放太多，会造成浪费（通胀侵蚀购买力），太少又有风险！</p>
+<p>假设按个人每月支出5K计算，6个月储备金便会是大约3w左右；<br>
+在讲该如何为这笔资金做规划前，先介绍一个不可能3角：高收益，高流动性，和低风险！</p>
+<p>正常而言，无论任何投资理财产品，最多只能兼顾这其中的2种特性。</p>
+<p>而由于我们的应急储备金，主打的是一个及时，在投资种类上，相对收益，会更看重其流动性和本金的保本能力（低风险），因此收益上并不是主要考虑因素，为此个人认为，放置到货币基金户口是一个不错的选择！</p>
+<h3>保险(CD：20%)</h3>
+<p>现在很多人，闻保色变，这都是因为被那些老鼠屎不负责任的保险经纪人或代理人所拉低了整个行业风气和评价。<br>
+事实上，保险的本质是风险对冲，因此是十分有必要去了解和做好全面的配置的。</p>
+<p>但保险又是因人而异的，适用于他人的配置，不一定满足于自己，因为这其中的变量太多：如年龄，收入，家庭成员，个人身体健康程度，职业等等。所以不要人云亦云，只有适合自己的才是好的！</p>
+<p>保险主要针对两大问题：</p>
+<p>1.Die too soon (Fear)：<br>
+i）家人：<strong>人寿</strong>（给家人保障！）<br>
+ii）个人：<strong>重疾、意外、医疗</strong>（不连累他人，有尊严的生活）</p>
+<p>2.Live too long (Greedy)：储蓄投资类保险</p>
+<p>这边简单介绍下保障类的保险，作为一名刚毕业参加工作的年轻人而言，现在可以计划配置好以下种类：<br>
+1.<strong>重疾险</strong>：规避疾病带来的收入损失风险（患病无法工作，丧失收入来源），**买了几份就赔几份！<strong>→for 自己<br>
+2.医疗险：规避患病后的门诊/住院费用；实报实销，所以</strong>一份即可！**→for 自己<br>
+3.<strong>意外险</strong>：规避因意外导致的伤残/身故等，<strong>买几份赔几份</strong>→for 自己<br>
+4.<strong>人寿险</strong>：规避因身故/全残导致的家人失去经济支柱（so对于家庭经济支柱一定要买！）→受益人for家人！</p>
+<p>对于保险的保障额度而言，这个要咨询个人的保险代理人，因应个人收入和生活水平来去平衡！</p>
+<p>所以我们每年应该也要有一个户口是专门来存放购买保险的资金储备，如果是以年供形式的话，这笔资金可以做<strong>定存</strong>（最初第一个月的锁定12个月，第二个月的资金锁定11个月，以此类推），这样便可以获得相对高一丢丢的回报且保证本金安全！<br>
+除此之外，当然也是可以投资基金，如<strong>定投货币基金</strong>也是一个不错的选择！</p>
+<h3>保值的资金（30%）--固收类投资</h3>
+<p>保值，顾名思义，就是能随着岁月流逝而抵御通胀！<br>
+这部分资金，总的可以分为两部分：<br>
+1.用于投资增值的现金弹药储备（等待全垒打的机会，永不满仓）；<br>
+2.用于其他目的，做灵活调配之用！</p>
+<p>用作弹药储备的这部分资金，对于高流动性十分看重！所以在保本的的情况下，一部分以<strong>CASH</strong>形式躺在银行里，一部分可以做一些<strong>流动性高的基金配置</strong>。<br>
+针对第2点的资金，则可以稍微做一些中短期的配置。如<strong>ETF、收息股、指数基金等</strong></p>
+<h3>增值（40%）--追求收益</h3>
+<p>总体可分为两大部分：<br>
+<strong>1.投资（长期）：市场是称重机→价值；Intrinsic Value，看好企业未来的盈利和成长！</strong><br>
+<strong>2.投机（短期）：市场是投票机→热点；Buy Low Sell High</strong></p>
+<p>针对<strong>长期的价值投资</strong>而言，我们需要不断精进自己的选股能力：要以一种收购企业的心态去全盘审视企业，包括但不限于企业的经营情况、成长性、管理者的质素、企业的竞争力等等！<br>
+正如巴菲特说过，哪怕一家优秀的公司，但在一个垃圾时间买入，那这笔投资也是垃圾的！</p>
+<p>因此，以一个<strong>正确的时机</strong>和<strong>价格</strong>买入一个<strong>优质</strong>的企业，是造就优质投资的必要条件，缺一不可！<br>
+这其中涉及**“安全边际Safety Margin”**，安全边际越高，我们的弹性越大！</p>
+<p>除此之外，还有一个非常重要，就是投资的第一要义是：本金安全！！（这背后涉及的工作和付出是巨大的，考验人性、认知、财务知识等等）</p>
+<p>这部分是真正展现**“资产配置”**不相关性（以规避非系统性风险，又称为“特定风险”）的最核心部分：<br>
+债券<br>
+基金（ETF、指数基金等）<br>
+股票（成长、收息等）<br>
+房产投资<br>
+...</p>
+<p>而对于<strong>短期的投机</strong>而言，这部分资金很重要的一点是：闲钱！<br>
+哪怕全亏了，也压根不影响个人生活的余钱。</p>
+<p>投机，简单而言就是追涨杀跌，在低位买入，高位卖出，是一个零和游戏，因此，<strong>设置止盈和止损点</strong>很有必要，而培养严格执行的纪律性就更重要了！</p>
+<p>这部分资金追求的就是高额超越市场的投资回报，所以在投资风格的选择上，可以更进取。比如Crypto Currencies, 热门股，期权期货等</p>
+<h3>BI²模式</h3>
+<p>真正跳脱出Rat Race的是围绕BI²而建立的事业：<br>
+<strong>Business<br>
+Investment<br>
+Influence</strong><br>
+而这3者可以是相辅相成的：<br>
+无论从事任何行业，要成长为行业的意见领袖（KOL），逐渐掌握话语权和顶层规则的设计制定者，吸引追随者（follower），而这会反哺到你的Business和Investment上！</p>
+<p>三种收入：<br>
+1份时间1份收入：工资→Rat Race<br>
+1份时间N份收入：视频/产品，可复制边际成本为0<br>
+0时间N份收入：建立体系，系统！</p>
+<hr>
+<h3>人生意义</h3>
+<p>最后的最后，想简单讨论一下人生的意义（The meaning of life）</p>
+<p>处于现今这个物质横飞，急功近利，笑贫不笑娼的年代，我们总会把人生的意义和财富的厚度划上等号。</p>
+<p>假设让我们一夜暴富，是否代表未来的日子便毫无意义，会面临无尽的心灵空虚？！</p>
+<p>现在的我，所理解的人生意义应该是围绕4个字：价值实现！<br>
+财富只是一种依附，是一种助推我们实现人生意义的工具和垫脚石而已，否则我们只会沦为财富的奴隶。</p>
+<p>因此，我们应该扪心自问，探寻心灵最深处，了解自己最纯真想要去完成的使命到底是什么！</p>
+<p>去构建自己的<strong>愿景VIsion（WHY）→打造Strategy（How）→将抽象概念具象化！（What）</strong>；从而一步步实现个人理想！</p>
+<p>这对于我而言，就是在实现自我价值和探寻个人人生意义价值所在！！！</p>
+<p>Wish us all the best!</p></div>
+<span class="PostTime">📅2024-04-24</span>
+
+
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> INDA HOUSE </a>
+<p>
+    <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+    <span>/</span><a href="https://github.com/ChanForWang/ChanForWang.github.io/issues" target="_blank">Blog</a>
+</p>
+
+<script>
+    if ("03/28/2024" != "") {
+        var now = new Date();
+        var startSite = new Date("03/28/2024");
+        var diff = now.getTime() - startSite.getTime();
+        var diffDay = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("year").innerHTML = now.getFullYear();
+        if ("" != "") {
+            document.getElementById("runday").innerHTML = " • " + "网站运行" + diffDay + "天" + " • ";
+        } else {
+            document.getElementById("runday").innerHTML = "网站运行" + diffDay + "天" + " • ";
+        }
+    }
+</script></div>
+    <!-- Music Player-->
+    <div id="aplayer"></div>
+
+</body>
+<script>
+    var ap = new APlayer({
+        element: document.getElementById('aplayer'),
+        showlrc: false,
+        fixed: true,
+        mini: true,
+        audio: [
+            {
+                title: 'Lover Boy 88',
+                author: 'Higher Brother',
+                url: 'https://www.joy127.com/url/109336.mp3',
+                pic: 'https://p1.music.126.net/vMS-ShrL4k6R0uoBQrXy5g==/109951168608869612.jpg?param=130y130'
+            },
+            {
+                title: "南山南",
+                author: '张磊',
+                url: 'https://www.joy127.com/url/109337.mp3',
+                pic: 'https://p1.music.126.net/sF17Bq1KRm9vdBMjvhXTvQ==/109951165134399856.jpg?param=130y130'
+            },
+            {
+                title: "童言无忌",
+                author: "王以太",
+                url: "https://www.joy127.com/url/109340.mp3",
+                pic: "https://p1.music.126.net/Z80wn4m5lgLcQqe09CKnvQ==/109951162830156702.jpg?param=130y130"
+            },
+            {
+                title: "稻香",
+                author: "周杰伦",
+                url: "https://www.joy127.com/url/109338.mp3",
+                pic: "https://p2.music.126.net/DpAuXTXlirLKXawYxJo70g==/109951164579389026.jpg?param=130y130"
+            },
+            {
+                title: "晴天",
+                author: "周杰伦",
+                url: "https://www.joy127.com/url/109339.mp3",
+                pic: "https://p1.music.126.net/DpAuXTXlirLKXawYxJo70g==/109951164579389026.jpg?param=130y130"
+            },
+        ]
+    });
+
+</script>
+
+
+<script>
+    var IconList = {'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+
+    var utterancesLoad = 0;
+    if (localStorage.getItem("meek_theme") == null) {
+        localStorage.setItem("meek_theme", "light");
+        changeLight();
+    } else if (localStorage.getItem("meek_theme") == "dark") {
+        changeDark();
+    } else if (localStorage.getItem("meek_theme") == "light") {
+        changeLight();
+    }
+
+    function changeDark() {
+        document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value = "dark";
+        document.getElementById("themeSwitch").setAttribute("d", value = IconList["moon"]);
+        document.getElementById("themeSwitch").parentNode.style.color = "#00f0ff";
+        if (utterancesLoad == 1) {
+            utterancesTheme("dark-blue");
+        }
+    }
+
+    function changeLight() {
+        document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value = "light";
+        document.getElementById("themeSwitch").setAttribute("d", value = IconList["sun"]);
+        document.getElementById("themeSwitch").parentNode.style.color = "#ff5000";
+        if (utterancesLoad == 1) {
+            utterancesTheme("github-light");
+        }
+    }
+
+    function modeSwitch() {
+        if (document.getElementsByTagName("html")[0].attributes[0].value == "light") {
+            changeDark();
+            localStorage.setItem("meek_theme", "dark");
+        } else {
+            changeLight();
+            localStorage.setItem("meek_theme", "light");
+        }
+    }
+
+    function utterancesTheme(theme) {
+        const message = {
+            type: 'set-theme',
+            theme: theme
+        };
+        const iframe = document.getElementsByClassName('utterances-frame')[0];
+        iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+
+    console.log("\n %c Gmeek last %c https://github.com/ChanForWang/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","ChanForWang/ChanForWang.github.io");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+ 
+
+</html>
