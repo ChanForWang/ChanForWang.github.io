@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>INDA HOUSE</title><link>https://ChanForWang.github.io</link><description>去有风的地方</description><copyright>INDA HOUSE</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.ibb.co/dkKbsNN/logo.png</url><title>avatar</title><link>https://ChanForWang.github.io</link></image><lastBuildDate>Wed, 24 Apr 2024 09:31:57 +0000</lastBuildDate><managingEditor>INDA HOUSE</managingEditor><ttl>60</ttl><webMaster>INDA HOUSE</webMaster><item><title>投资理财，是为了什么</title><link>https://ChanForWang.github.io/post/tou-zi-li-cai-%EF%BC%8C-shi-wei-le-shen-me.html</link><description>之前，看到一篇公众号，提出一个很好的问题：你投资理财，到底是为了什么？！&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>INDA HOUSE</title><link>https://ChanForWang.github.io</link><description>去有风的地方</description><copyright>INDA HOUSE</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.ibb.co/dkKbsNN/logo.png</url><title>avatar</title><link>https://ChanForWang.github.io</link></image><lastBuildDate>Fri, 10 May 2024 09:37:41 +0000</lastBuildDate><managingEditor>INDA HOUSE</managingEditor><ttl>60</ttl><webMaster>INDA HOUSE</webMaster><item><title>4月复盘-2024</title><link>https://ChanForWang.github.io/post/4-yue-fu-pan--2024.html</link><description>### Learning&#13;
+首先，在个人成长或学习上，4月份自我评价懒惰，怠慢了，没有看到一页的书本、一篇英文文章！&#13;
+&#13;
+归咎原因：&#13;
+太过沉迷于 游戏、社交媒体、短视频等即时满足的娱乐，奶头乐的的沉溺，只会让自己越来越没有深度思考能力！&#13;
+&#13;
+改进：&#13;
+1.先有意识了解自己每天的时间主要花在哪里&#13;
+2.判断个人最高效时间段&#13;
+3.任务做时限！deadline！&#13;
+4.减少奶头乐时间！&#13;
+5.做好每日计划，延迟满足→完成计划后，再奖励休息时间！&#13;
+6.less is more, 先订立毫不起眼的目标，建立21天习惯！以好习惯替换坏习惯！&#13;
+&#13;
+### 健康&#13;
+&#13;
+### 财务&#13;
+&#13;
+&#13;
+。</description><guid isPermaLink="true">https://ChanForWang.github.io/post/4-yue-fu-pan--2024.html</guid><pubDate>Fri, 10 May 2024 09:37:16 +0000</pubDate></item><item><title>投资理财，是为了什么</title><link>https://ChanForWang.github.io/post/tou-zi-li-cai-%EF%BC%8C-shi-wei-le-shen-me.html</link><description>之前，看到一篇公众号，提出一个很好的问题：你投资理财，到底是为了什么？！&#13;
 也许你会说，这不废话嘛，当然是为了财富自由，早日退休吖！&#13;
 &#13;
 这个回答表面乍一看没啥问题，但事实上，这样的回答是十分的含糊不清，让人摸不着头脑的（答案缺失焦点，压根不知要干嘛，换句话说，不知道如何执行和实现这所谓“目标”）。</description><guid isPermaLink="true">https://ChanForWang.github.io/post/tou-zi-li-cai-%EF%BC%8C-shi-wei-le-shen-me.html</guid><pubDate>Wed, 24 Apr 2024 09:26:09 +0000</pubDate></item><item><title>邮件定期发送--自动化python脚本</title><link>https://ChanForWang.github.io/post/you-jian-ding-qi-fa-song----zi-dong-hua-python-jiao-ben.html</link><description>因为工作原因，每周周四团队的秘书就会要求我们更新最新一个礼拜的weekly schedule (excel)，透过邮件发给她，因为除了修改excel的内容，其他可谓都是重复性的动作(写发邮件，上传附件等)，事虽小，但很浪费时间，且自己也总是忘记；&#13;
