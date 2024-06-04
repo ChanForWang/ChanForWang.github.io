@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>INDA HOUSE</title><link>https://ChanForWang.github.io</link><description>去有风的地方</description><copyright>INDA HOUSE</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.ibb.co/dkKbsNN/logo.png</url><title>avatar</title><link>https://ChanForWang.github.io</link></image><lastBuildDate>Tue, 04 Jun 2024 07:57:28 +0000</lastBuildDate><managingEditor>INDA HOUSE</managingEditor><ttl>60</ttl><webMaster>INDA HOUSE</webMaster><item><title>如何巧妙利用上瘾机制实现个人目标</title><link>https://ChanForWang.github.io/post/ru-he-qiao-miao-li-yong-shang-yin-ji-zhi-shi-xian-ge-ren-mu-biao.html</link><description>### 背景&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>INDA HOUSE</title><link>https://ChanForWang.github.io</link><description>去有风的地方</description><copyright>INDA HOUSE</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.ibb.co/dkKbsNN/logo.png</url><title>avatar</title><link>https://ChanForWang.github.io</link></image><lastBuildDate>Tue, 04 Jun 2024 07:59:11 +0000</lastBuildDate><managingEditor>INDA HOUSE</managingEditor><ttl>60</ttl><webMaster>INDA HOUSE</webMaster><item><title>如何巧妙利用上瘾机制实现个人目标</title><link>https://ChanForWang.github.io/post/ru-he-qiao-miao-li-yong-shang-yin-ji-zhi-shi-xian-ge-ren-mu-biao.html</link><description>### 背景&#13;
 &#13;
 以下场景对你来说是否毫不陌生：&#13;
 &#13;
@@ -132,7 +132,7 @@ while True:&#13;
 发现一个很不错的音乐外链方式：Onedrive&#13;
 1.将音乐MP3下载到本地&#13;
 2.右击音乐，选中onedrive的share&#13;
-3.copy link到https://onedrive.gimhoy.com/；将share link转换为mp3 link&#13;
+3.copy link到https://onedrive.gimhoy.com/ ； 将share link转换为mp3 link&#13;
 4.此link便是Gmeek仓库下&gt;template&gt;music.html里的音乐外链！&#13;
 5.图片外链，直接用网易云音乐的缩图便可！。</description><guid isPermaLink="true">https://ChanForWang.github.io/post/How%20to%20customize%20my%20personal%20blog.html</guid><pubDate>Sun, 14 Apr 2024 02:20:38 +0000</pubDate></item><item><title>待填的“坑”</title><link>https://ChanForWang.github.io/post/dai-tian-de-%E2%80%9C-keng-%E2%80%9D.html</link><description>- [ ] 如何避免因“稀缺Scarcity“导致的短视(行为、选择)，反之是“富余&amp;长期主义”&#13;
 - Causing tunnel mindset；（e.g Deadline--Time is scarcity; Poor--Money is scarcity)&#13;

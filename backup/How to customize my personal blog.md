@@ -21,6 +21,6 @@
 发现一个很不错的音乐外链方式：Onedrive
 1.将音乐MP3下载到本地
 2.右击音乐，选中onedrive的share
-3.copy link到https://onedrive.gimhoy.com/；将share link转换为mp3 link
+3.copy link到https://onedrive.gimhoy.com/ ； 将share link转换为mp3 link
 4.此link便是Gmeek仓库下>template>music.html里的音乐外链！
 5.图片外链，直接用网易云音乐的缩图便可！
