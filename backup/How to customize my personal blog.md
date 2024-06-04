@@ -15,3 +15,12 @@
 （这里的push指的是代码部分的push和tag的push，只有tag的push完成后，才会在后续生效，因为Gmeek.yml里面的clone source code逻辑部分，是依照tag的最新版本来生成的！）
 
 随后在repository：chanforwang.github.io下的Action，去build Gmeek即可！
+
+
+## Remarks
+发现一个很不错的音乐外链方式：Onedrive
+1.将音乐MP3下载到本地
+2.右击音乐，选中onedrive的share
+3.copy link到https://onedrive.gimhoy.com/；将share link转换为mp3 link
+4.此link便是Gmeek仓库下>template>music.html里的音乐外链！
+5.图片外链，直接用网易云音乐的缩图便可！
