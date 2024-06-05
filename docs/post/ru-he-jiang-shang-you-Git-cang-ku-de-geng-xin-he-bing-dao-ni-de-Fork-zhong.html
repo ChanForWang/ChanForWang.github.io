@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light" lang= "zh-CN" >
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
+
+    <!-- Music Player-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="## 引言
+
+在开源世界中，Git的fork功能是一个强大的工具，它允许开发者复制一个仓库到自己的账户下，进行修改和实验，而不会影响原始仓库。">
+<meta property="og:title" content="如何将上游Git仓库的更新合并到你的Fork中">
+<meta property="og:description" content="## 引言
+
+在开源世界中，Git的fork功能是一个强大的工具，它允许开发者复制一个仓库到自己的账户下，进行修改和实验，而不会影响原始仓库。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ChanForWang.github.io/post/ru-he-jiang-shang-you-Git-cang-ku-de-geng-xin-he-bing-dao-ni-de-Fork-zhong.html">
+<meta property="og:image" content="https://i.ibb.co/dkKbsNN/logo.png">
+<title>如何将上游Git仓库的更新合并到你的Fork中</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 45px;
+        font-size: 16px;
+        font-family: sans-serif;
+        line-height: 1.25;
+    }
+    
+    #header {
+        display: flex;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
+        margin-bottom: 16px;
+    }
+    
+    #footer {
+        margin-top: 64px;
+        text-align: center;
+        font-size: small;
+    }
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+.PostTime{font-size:1rem;color:#74bbff73;font-weight: bold;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style><style>.markdown-alert.markdown-alert-important {border-left-color:var(--borderColor-done-emphasis, var(--color-done-emphasis));background-color:var(--color-done-subtle);}.markdown-alert.markdown-alert-important .markdown-alert-title {color: var(--fgColor-done,var(--color-done-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">如何将上游Git仓库的更新合并到你的Fork中</h1>
+<div class="title-right">
+    <a href="https://ChanForWang.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/ChanForWang/ChanForWang.github.io/issues/15" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h2>引言</h2>
+<p>在开源世界中，Git的fork功能是一个强大的工具，它允许开发者复制一个仓库到自己的账户下，进行修改和实验，而不会影响原始仓库。然而，随着时间的推移，</p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>痛点：<strong>原始仓库（上游仓库）会有新的更新，而你的fork（下游仓库）也可能有独特的更改。</strong><br>
+需求：本文将指导你如何 <strong>将上游仓库的更新同步到你的fork中，同时保留你自己本地fork仓库的更新。</strong></p>
+</div>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>实际case：上游的Meekdai/Gmeek仓库会有不定期的更新，但我自己fork到github的ChanForWang/Gmeek则不会同步更新，且有自己的独特更新，因此若想使用最新上游所更新的功能，则需要本次文章介绍的方式！</p>
+</div>
+<h2>同步上游更新的步骤</h2>
+<h3>1. 克隆你的Fork到本地</h3>
+<p>首先，如果你还没有克隆你的fork，可以通过以下命令来克隆：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git clone https://github.com/ChanForWang/Gmeek.git</pre></div>
+<h3>2. 添加上游仓库作为远程仓库</h3>
+<p>进入仓库目录，并添加上游仓库的远程引用：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c1">cd</span> Gmeek
+git remote add upstream https://github.com/Meekdai/Gmeek.git</pre></div>
+<h3>3. 获取上游仓库的最新提交</h3>
+<p>通过以下命令获取上游仓库的最新状态：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git fetch upstream</pre></div>
+<h3>4. 创建一个新的分支用于同步-重要step！</h3>
+<p>为了避免直接在主分支上操作，创建一个新的分支来尝试合并上游的更改：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git checkout -b sync-upstream</pre></div>
+<h3>5. 合并上游仓库的更改</h3>
+<p>将上游仓库的<code class="notranslate">main</code>分支合并到你的新分支：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git merge upstream/main</pre></div>
+<h3>6. 解决合并冲突（如果有）</h3>
+<p>如果合并过程中出现冲突，Git会提示你解决这些冲突。</p>
+<ul>
+<li>编辑冲突文件；（Vim xxx文档）</li>
+<li>删除Git的冲突标记；
+<ul>
+<li>&lt;&lt;&lt;&lt;Head  ======,这部分是我本地有冲突的代码，======= &gt;&gt;&gt;&gt;&gt;&gt;upstream, 这部分则是上游的代码</li>
+<li>看要选取那一部分代码作为替换的，随后删掉这些冲突标记&lt;&lt;&lt;&lt;&lt;====&gt;&gt;&gt;&gt;&gt;</li>
+</ul>
+</li>
+<li>并保存更改</li>
+</ul>
+<h3>7. 推送更改到你的Fork</h3>
+<p>将解决冲突后的更改推送到你的GitHub上的fork：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git push origin sync-upstream</pre></div>
+<h3>8. 在GitHub上发起Pull Request</h3>
+<p>转到你的fork的GitHub页面，比较并创建一个Pull Request，将<code class="notranslate">sync-upstream</code>分支的更改合并到你的<code class="notranslate">main</code>分支。</p>
+<h3>9. 更新你的<code class="notranslate">main</code>分支</h3>
+<p>一旦Pull Request被合并，你可以更新你的<code class="notranslate">main</code>分支以包含最新的更改：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git checkout main
+git merge sync-upstream
+git push origin main</pre></div>
+<h3>10. 创建新的版本标签</h3>
+<p>现在你的<code class="notranslate">main</code>分支已经包含了所有最新的更改，你可以创建一个新的版本标签来标记这个发布版本：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git tag -a v1.0.0 -m <span class="pl-s"><span class="pl-pds">"</span>版本1.0.0发布<span class="pl-pds">"</span></span>
+git push origin v1.0.0</pre></div>
+<h2>结语</h2>
+<p>通过上述步骤，你可以有效地将上游仓库的更新同步到你的fork中，同时保留你自己的更改。这不仅有助于保持你的fork是最新的，而且也使得贡献回上游仓库变得更加容易。记住，良好的沟通和清晰的文档是开源协作的关键。</p>
+<hr>
+<p>这篇文章可以作为博客上的一篇科普文章，帮助读者理解如何在Git中管理fork和上游仓库之间的同步。</p>
+<hr>
+<h3>额外补充：以Vim命令编辑文件的用法</h3>
+<p>按下 Esc 键：首先，确保你处于普通模式。<br>
+如果你在插入模式（Insert mode）、替换模式（Replace mode）或其他模式下，按下 Esc 键会将你带回普通模式。</p>
+<p>输入退出命令：在普通模式下，你可以输入以下命令之一来退出 vim：</p>
+<p>:q — 退出 vim（如果对文件做了更改且没有保存，这将不保存更改直接退出）。<br>
+:q! — 强制退出 vim，不保存任何更改。<br>
+:wq — 保存更改并退出 vim（写入并退出）。<br>
+:wq! — 强制保存更改并退出 vim，即使文件是只读的。</p></div>
+<span class="PostTime">📅2024-06-05</span>
+
+
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
+<p>
+    <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+    <span>/</span><a href="https://github.com/ChanForWang/ChanForWang.github.io/issues" target="_blank">Blog</a>
+</p>
+
+<script>
+    if ("03/28/2024" != "") {
+        var now = new Date();
+        var startSite = new Date("03/28/2024");
+        var diff = now.getTime() - startSite.getTime();
+        var diffDay = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("year").innerHTML = now.getFullYear();
+        if ("" != "") {
+            document.getElementById("runday").innerHTML = " • " + "网站运行" + diffDay + "天" + " • ";
+        } else {
+            document.getElementById("runday").innerHTML = "网站运行" + diffDay + "天" + " • ";
+        }
+    }
+</script></div>
+    <!-- Music Player-->
+    <div id="aplayer"></div>
+
+</body>
+<script>
+    var ap = new APlayer({
+        element: document.getElementById('aplayer'),
+        showlrc: false,
+        fixed: true,
+        mini: true,
+        audio: [
+            {
+                title: '向云端',
+                author: '小霞/海洋Bo',
+                url: 'https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VXOGRLM0xkM2RwQnBHUDdDR2l5Si1jQkF3d0xoZGZlSHE5Qk9VeHJnVVN3N3c_ZT12d05zMXo.mp3',
+                pic: 'https://p2.music.126.net/TmOHxaGnFNlwNX8aPz66oA==/109951168638913915.jpg?param=130y130'
+            },
+            {
+                title: "南山南",
+                author: '张磊',
+                url: 'https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VhMGlpeE5zR3NkSGdQYXhqZ0JsZ1BFQnYwZW9KaUlOTHNTcHRBZjhrMWtxSVE_ZT1kb08wUFQ.mp3',
+                pic: 'https://p1.music.126.net/sF17Bq1KRm9vdBMjvhXTvQ==/109951165134399856.jpg?param=130y130'
+            },
+            {
+                title: "童言无忌",
+                author: "王以太",
+                url: "https://www.joy127.com/url/109340.mp3",
+                pic: "https://p1.music.126.net/Z80wn4m5lgLcQqe09CKnvQ==/109951162830156702.jpg?param=130y130"
+            },
+            {
+                title: "稻香",
+                author: "周杰伦",
+                url: "https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VhYlQzeGdOeXpwTnZpMFBWZ21sQ3VjQnBZR0VEWnplNUppZ0s5VWZUOXlpZFE_ZT1tTno1a2w.jpg",
+                pic: "https://p2.music.126.net/DpAuXTXlirLKXawYxJo70g==/109951164579389026.jpg?param=130y130"
+            },
+            {
+                title: "晴天",
+                author: "周杰伦",
+                url: "https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VZR0FXSU45X2JKTWdlRGdjMnhNbHRvQk40VmNjc0xfSnljS1cwbXJWbHJDRWc_ZT14QnQ3dGI.jpg",
+                pic: "https://p1.music.126.net/DpAuXTXlirLKXawYxJo70g==/109951164579389026.jpg?param=130y130"
+            },
+            {
+                title: "向阳而生(日出)",
+                author: "华晨宇",
+                url: "https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VRVjctd19ZT2Q1T21Gd2VYSHdxU1dnQkplOVNTc0tfTTNucnV2c0Y3bFFETUE_ZT1hZ0QxVWs.mp3",
+                pic: "https://p1.music.126.net/w1A7-Eqx26C0-ANXd3NolA==/109951169646542385.jpg?param=130y130"
+            },
+            {
+                title: "若把你",
+                author: "刘瑾睿",
+                url: "https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VlZXlvbkpZNllkR3VMNDZDMk00VjFZQkRZYVRkTU5kYkxBanBrZHFSSFlLTlE_ZT11bnVaN2o.mp3",
+                pic: "https://p2.music.126.net/M877M2-VhWZiLPVFORf9iQ==/109951163401482434.jpg?param=130y130"
+            },
+        ]
+    });
+
+</script>
+
+
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/ChanForWang/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","ChanForWang/ChanForWang.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+ 
+</html>
