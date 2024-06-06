@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
-    <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png"><script>
+    <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
+
+    <!-- 引入Jquery和Pjax；pjax基于Jquery框架 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+
+    <!-- Music Player-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
@@ -18,9 +26,7 @@
 <meta property="og:image" content="https://i.ibb.co/dkKbsNN/logo.png">
 <title>INDA HOUSE</title>
 
-<!-- Music Player-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
 
 </head>
 
@@ -77,8 +83,10 @@
 
 
 
+
     <!-- Music Player-->
     <div id="aplayer"></div>
+
 
 <body>
     <div id="header">
@@ -346,6 +354,18 @@ function utterancesTheme(theme){
 }
 if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/ChanForWang/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+
+
+<!--Pjax-->
+if ($.support.pjax){
+    console.log('支持pjax');
+    // 初始化Pjax
+    $(document).pjax('a', '#pjax-container');
+    }
+    else{
+        console.warn('不支持pjax')
+    };
+
 </script>
 
 <script>
@@ -365,6 +385,7 @@ for(var i=0;i<iconPost.length;i++){
 
 
 
+</script>
 
 <!--添加aplayer的js，以html形式导入-->
 <script>
@@ -421,19 +442,8 @@ for(var i=0;i<iconPost.length;i++){
 
 </script>
 
-</script>
 
 
-
-
-if ($.support.pjax){
-    console.log('支持pjax');
-    // 初始化Pjax
-    $(document).pjax('a', '#pjax-container');
-    }
-    else{
-        console.warn('不支持pjax')
-    };
 
  
 </html>
