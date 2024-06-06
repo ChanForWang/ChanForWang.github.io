@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
-    <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
-
-    <!-- Music Player-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
+    <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
@@ -74,6 +70,7 @@
 
 
 </head>
+
 <style>
     body {
         box-sizing: border-box;
@@ -164,8 +161,6 @@
 4.此link便是Gmeek仓库下&gt;template&gt;music.html里的音乐外链！<br>
 5.图片外链，直接用网易云音乐的缩图便可！</p></div>
 <span class="PostTime">📅2024-04-14</span>
-
-
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
@@ -190,63 +185,7 @@
         }
     }
 </script></div>
-    <!-- Music Player-->
-    <div id="aplayer"></div>
-
 </body>
-<script>
-    var ap = new APlayer({
-        element: document.getElementById('aplayer'),
-        showlrc: false,
-        fixed: true,
-        mini: true,
-        audio: [
-            {
-                title: '向云端',
-                author: '小霞/海洋Bo',
-                url: 'https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VXOGRLM0xkM2RwQnBHUDdDR2l5Si1jQkF3d0xoZGZlSHE5Qk9VeHJnVVN3N3c_ZT12d05zMXo.mp3',
-                pic: 'https://p2.music.126.net/TmOHxaGnFNlwNX8aPz66oA==/109951168638913915.jpg?param=130y130'
-            },
-            {
-                title: "南山南",
-                author: '张磊',
-                url: 'https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VhMGlpeE5zR3NkSGdQYXhqZ0JsZ1BFQnYwZW9KaUlOTHNTcHRBZjhrMWtxSVE_ZT1kb08wUFQ.mp3',
-                pic: 'https://p1.music.126.net/sF17Bq1KRm9vdBMjvhXTvQ==/109951165134399856.jpg?param=130y130'
-            },
-            {
-                title: "童言无忌",
-                author: "王以太",
-                url: "https://www.joy127.com/url/109340.mp3",
-                pic: "https://p1.music.126.net/Z80wn4m5lgLcQqe09CKnvQ==/109951162830156702.jpg?param=130y130"
-            },
-            {
-                title: "稻香",
-                author: "周杰伦",
-                url: "https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VhYlQzeGdOeXpwTnZpMFBWZ21sQ3VjQnBZR0VEWnplNUppZ0s5VWZUOXlpZFE_ZT1tTno1a2w.jpg",
-                pic: "https://p2.music.126.net/DpAuXTXlirLKXawYxJo70g==/109951164579389026.jpg?param=130y130"
-            },
-            {
-                title: "晴天",
-                author: "周杰伦",
-                url: "https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VZR0FXSU45X2JKTWdlRGdjMnhNbHRvQk40VmNjc0xfSnljS1cwbXJWbHJDRWc_ZT14QnQ3dGI.jpg",
-                pic: "https://p1.music.126.net/DpAuXTXlirLKXawYxJo70g==/109951164579389026.jpg?param=130y130"
-            },
-            {
-                title: "向阳而生(日出)",
-                author: "华晨宇",
-                url: "https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VRVjctd19ZT2Q1T21Gd2VYSHdxU1dnQkplOVNTc0tfTTNucnV2c0Y3bFFETUE_ZT1hZ0QxVWs.mp3",
-                pic: "https://p1.music.126.net/w1A7-Eqx26C0-ANXd3NolA==/109951169646542385.jpg?param=130y130"
-            },
-            {
-                title: "若把你",
-                author: "刘瑾睿",
-                url: "https://dlink.host/sharepoint/aHR0cHM6Ly9waWNvZmFyZWFzdC1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9qYW1lc19jaGFuX3BpY29fY29tL0VlZXlvbkpZNllkR3VMNDZDMk00VjFZQkRZYVRkTU5kYkxBanBrZHFSSFlLTlE_ZT11bnVaN2o.mp3",
-                pic: "https://p2.music.126.net/M877M2-VhWZiLPVFORf9iQ==/109951163401482434.jpg?param=130y130"
-            },
-        ]
-    });
-
-</script>
 
 
 <script>
