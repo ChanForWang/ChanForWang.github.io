@@ -8,10 +8,6 @@
     <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
 
-    <!-- 引入Jquery和Pjax；pjax基于Jquery框架 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
-
     <!-- Music Player-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
@@ -30,7 +26,6 @@
 
 
 </head>
-
 <style>
     body {
         box-sizing: border-box;
@@ -76,10 +71,8 @@
 
 
 
-
 <body>
-    <div id="pjax-container">
-        <div id="header">
+    <div id="header">
 <h1 class="postTitle">Git的用处及用法</h1>
 <div class="title-right">
     <a href="https://ChanForWang.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
@@ -103,7 +96,7 @@
 
 </div>
 </div>
-        <div id="content">
+    <div id="content">
 <div class="markdown-body" id="postBody"><h2>简介</h2>
 <p>很开心，今天终于又又一次上线了自己小Blog，为什么说“又”，因为曾经自己可是从头到尾用Django折腾过一个专属的，奈何因为服务器的羊毛到期了，只能被迫下线，唯有最近偶然机遇发现Github Pages和便捷的Gmeek，可以轻松部署。虽然模板没有像以前的那么花里胡哨，但胜在简单和便捷，可以让我更专注于搭建目的，而不是搭建过程，而不是本末倒置！（虽然我也折腾了一段时间，尝试考虑自定义🤣）</p>
 <p>在折腾的过程中，又再次重新掌握github和git指令，这个过程让我对GitHub的用途之于工作用途有了新的思考和理解。</p>
@@ -137,22 +130,17 @@ workspace是正在工作区域；</p>
 <h2>结语</h2>
 <p>最后，很开心折腾的个人博客上线了，未来希望能利用这个平台，记录更多的所见所思。</p></div>
 <span class="PostTime">📅2024-03-28</span>
+
+
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
-    </div>
-
-    <div id="footer">
-
-Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
 <p>
     <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
     <span>/</span><a href="https://github.com/ChanForWang/ChanForWang.github.io/issues" target="_blank">Blog</a>
 </p>
-
-<!-- Music Player-->
-<div id="aplayer"></div>
 
 <script>
     if ("03/28/2024" != "") {
@@ -167,8 +155,11 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
             document.getElementById("runday").innerHTML = "网站运行" + diffDay + "天" + " • ";
         }
     }
-</script>
-<!--添加aplayer的js，以html形式导入-->
+</script></div>
+    <!-- Music Player-->
+    <div id="aplayer"></div>
+
+</body>
 <script>
     var ap = new APlayer({
         element: document.getElementById('aplayer'),
@@ -222,8 +213,6 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
     });
 
 </script>
-</div>
-</body>
 
 
 <script>
@@ -256,18 +245,6 @@ function utterancesTheme(theme){
 }
 if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/ChanForWang/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
-
-
-<!--Pjax-->
-if($.support.pjax){
-    console.log('支持pjax');
-    // 初始化Pjax
-    $(document).pjax('a', '#pjax-container');
-    }
-    else{
-        console.warn('不支持pjax')
-    };
-
 </script>
 
 <script>

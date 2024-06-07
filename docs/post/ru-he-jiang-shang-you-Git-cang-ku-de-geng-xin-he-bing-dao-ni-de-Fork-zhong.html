@@ -8,10 +8,6 @@
     <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
 
-    <!-- 引入Jquery和Pjax；pjax基于Jquery框架 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
-
     <!-- Music Player-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
@@ -32,7 +28,6 @@
 <link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 </head>
-
 <style>
     body {
         box-sizing: border-box;
@@ -78,10 +73,8 @@
 
 
 
-
 <body>
-    <div id="pjax-container">
-        <div id="header">
+    <div id="header">
 <h1 class="postTitle">如何将上游Git仓库的更新合并到你的Fork中</h1>
 <div class="title-right">
     <a href="https://ChanForWang.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
@@ -105,7 +98,7 @@
 
 </div>
 </div>
-        <div id="content">
+    <div id="content">
 <div class="markdown-body" id="postBody"><h2>引言</h2>
 <p>在开源世界中，Git的fork功能是一个强大的工具，它允许开发者复制一个仓库到自己的账户下，进行修改和实验，而不会影响原始仓库。然而，随着时间的推移，</p>
 <div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>痛点：<strong>原始仓库（上游仓库）会有新的更新，而你的fork（下游仓库）也可能有独特的更改。</strong><br>
@@ -170,22 +163,17 @@ git push origin v1.0.0</pre></div>
 :wq — 保存更改并退出 vim（写入并退出）。<br>
 :wq! — 强制保存更改并退出 vim，即使文件是只读的。</p></div>
 <span class="PostTime">📅2024-06-05</span>
+
+
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
-    </div>
-
-    <div id="footer">
-
-Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
 <p>
     <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
     <span>/</span><a href="https://github.com/ChanForWang/ChanForWang.github.io/issues" target="_blank">Blog</a>
 </p>
-
-<!-- Music Player-->
-<div id="aplayer"></div>
 
 <script>
     if ("03/28/2024" != "") {
@@ -200,8 +188,11 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
             document.getElementById("runday").innerHTML = "网站运行" + diffDay + "天" + " • ";
         }
     }
-</script>
-<!--添加aplayer的js，以html形式导入-->
+</script></div>
+    <!-- Music Player-->
+    <div id="aplayer"></div>
+
+</body>
 <script>
     var ap = new APlayer({
         element: document.getElementById('aplayer'),
@@ -255,8 +246,6 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
     });
 
 </script>
-</div>
-</body>
 
 
 <script>
@@ -289,18 +278,6 @@ function utterancesTheme(theme){
 }
 if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/ChanForWang/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
-
-
-<!--Pjax-->
-if($.support.pjax){
-    console.log('支持pjax');
-    // 初始化Pjax
-    $(document).pjax('a', '#pjax-container');
-    }
-    else{
-        console.warn('不支持pjax')
-    };
-
 </script>
 
 <script>

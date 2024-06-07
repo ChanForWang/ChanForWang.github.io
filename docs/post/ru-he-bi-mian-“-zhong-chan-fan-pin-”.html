@@ -8,10 +8,6 @@
     <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
 
-    <!-- 引入Jquery和Pjax；pjax基于Jquery框架 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
-
     <!-- Music Player-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
@@ -28,7 +24,6 @@
 
 
 </head>
-
 <style>
     body {
         box-sizing: border-box;
@@ -74,10 +69,8 @@
 
 
 
-
 <body>
-    <div id="pjax-container">
-        <div id="header">
+    <div id="header">
 <h1 class="postTitle">如何避免“中产返贫”</h1>
 <div class="title-right">
     <a href="https://ChanForWang.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
@@ -101,7 +94,7 @@
 
 </div>
 </div>
-        <div id="content">
+    <div id="content">
 <div class="markdown-body" id="postBody"><p>自改革开放以来，无论是第一批下海经商的创业者，亦或是千禧年代乘着房地产东风扶摇直上的房产持有人，还是互联网新时代的弄潮儿，前前后后诞生了无数的中产，他们有幸凭借着自身的努力和时代的眷顾，积累了人生的第一笔财富，成为万千中产大员中的一份子。</p>
 <p>然后中产也是极度脆弱的一批人，他们的财富随时面临返贫的风险，因为我们所处的时代，唯一不变的就是充满变化！因此，稍有不慎，中产的财富便会陨落。</p>
 <p>现在更有着 <strong>“中产作死五件套”</strong>：贷款买房、配偶失业、因病返贫、中年创业、盲目投资理财</p>
@@ -165,22 +158,17 @@
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/077bfbf5-b7db-4a84-bb7e-ce19b4c5a694"><img src="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/077bfbf5-b7db-4a84-bb7e-ce19b4c5a694" alt="" style="max-width: 100%;"></a><br>
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/50c61782-2a66-44fb-a954-292b361225a8"><img src="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/50c61782-2a66-44fb-a954-292b361225a8" alt="" style="max-width: 100%;"></a></p></div>
 <span class="PostTime">📅2024-04-08</span>
+
+
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
-    </div>
-
-    <div id="footer">
-
-Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
 <p>
     <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
     <span>/</span><a href="https://github.com/ChanForWang/ChanForWang.github.io/issues" target="_blank">Blog</a>
 </p>
-
-<!-- Music Player-->
-<div id="aplayer"></div>
 
 <script>
     if ("03/28/2024" != "") {
@@ -195,8 +183,11 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
             document.getElementById("runday").innerHTML = "网站运行" + diffDay + "天" + " • ";
         }
     }
-</script>
-<!--添加aplayer的js，以html形式导入-->
+</script></div>
+    <!-- Music Player-->
+    <div id="aplayer"></div>
+
+</body>
 <script>
     var ap = new APlayer({
         element: document.getElementById('aplayer'),
@@ -250,8 +241,6 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
     });
 
 </script>
-</div>
-</body>
 
 
 <script>
@@ -284,18 +273,6 @@ function utterancesTheme(theme){
 }
 if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/ChanForWang/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
-
-
-<!--Pjax-->
-if($.support.pjax){
-    console.log('支持pjax');
-    // 初始化Pjax
-    $(document).pjax('a', '#pjax-container');
-    }
-    else{
-        console.warn('不支持pjax')
-    };
-
 </script>
 
 <script>

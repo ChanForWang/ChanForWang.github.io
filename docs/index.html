@@ -8,10 +8,6 @@
     <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
 
-    <!-- 引入Jquery和Pjax；pjax基于Jquery框架 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
-
     <!-- Music Player-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
@@ -27,7 +23,6 @@
 <title>INDA HOUSE</title>
 
 </head>
-
 <style>
     body {
         box-sizing: border-box;
@@ -81,35 +76,23 @@
 
 
 
-
 <body>
-    <div id="pjax-container">
-        <div id="header">
+    <div id="header">
 <h1>
-    <img src="https://i.ibb.co/dkKbsNN/logo.png" class="avatar circle" id="avatarImg" alt="avatar"><a class="blogTitle" href="https://chanforwang.github.io">INDA HOUSE</a>
-    </h1>
+    <img src="https://i.ibb.co/dkKbsNN/logo.png" class="avatar circle" id="avatarImg" alt="avatar"><a class="blogTitle">INDA HOUSE</a></h1>
 <div class="title-right">
-    <!--搜索-->
     <a href="https://ChanForWang.github.io/tag.html" id="buttonSearch" class="btn btn-invisible circle" title="搜索">
         <svg class="octicon" width="16" height="16" >
             <path id="pathSearch" fill-rule="evenodd"></path>
         </svg>
     </a>
-
-    <!--外链，我没有-->
     
-
-    <!--单页面，友情链接，我没有-->
     
-
-    <!--RSS订阅链-->
     <a href="https://ChanForWang.github.io/rss.xml" target="_blank" id="buttonRSS" class="btn btn-invisible circle" title="RSS">
         <svg class="octicon" width="16" height="16" >
             <path id="pathRSS" fill-rule="evenodd"></path>
         </svg>
     </a>
-
-    <!--亮/黑装换-->
     <a class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
         <svg class="octicon" width="16" height="16" >
             <path id="themeSwitch" fill-rule="evenodd"></path>
@@ -117,11 +100,10 @@
     </a>
 </div>
 </div>
-        <div id="content">
+    <div id="content">
 <div style="margin-bottom: 16px;">去有风的地方</div>
 <nav class="SideNav border">
 
-<!--透过for loop来去获取每篇文章-->
 <a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/tou-zi-ti-xi.html">
     <div class="d-flex flex-items-center">
         <svg class="SideNav-icon octicon" style="witdh:16px;height:16px"><path class="svgTop1" d=""></path>
@@ -289,25 +271,16 @@
     </div>
 </a>
 
-</nav>
-
-<!--上下页--><nav class="paginate-container" aria-label="Pagination">
+</nav><nav class="paginate-container" aria-label="Pagination">
     <div class="pagination"><span class="previous_page" aria-disabled="true">上一页</span>
         <a class="next_page" rel="next" href="https://ChanForWang.github.io/page2.html" aria-label="Next Page">下一页</a></div>
 </nav>
 </div>
-    </div>
-
-    <div id="footer">
-
-Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
 <p>
     <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
     <span>/</span><a href="https://github.com/ChanForWang/ChanForWang.github.io/issues" target="_blank">Blog</a>
 </p>
-
-<!-- Music Player-->
-<div id="aplayer"></div>
 
 <script>
     if ("03/28/2024" != "") {
@@ -322,8 +295,11 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
             document.getElementById("runday").innerHTML = "网站运行" + diffDay + "天" + " • ";
         }
     }
-</script>
-<!--添加aplayer的js，以html形式导入-->
+</script></div>
+    <!-- Music Player-->
+    <div id="aplayer"></div>
+
+</body>
 <script>
     var ap = new APlayer({
         element: document.getElementById('aplayer'),
@@ -377,8 +353,6 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
     });
 
 </script>
-</div>
-</body>
 
 
 <script>
@@ -411,18 +385,6 @@ function utterancesTheme(theme){
 }
 if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/ChanForWang/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
-
-
-<!--Pjax-->
-if($.support.pjax){
-    console.log('支持pjax');
-    // 初始化Pjax
-    $(document).pjax('a', '#pjax-container');
-    }
-    else{
-        console.warn('不支持pjax')
-    };
-
 </script>
 
 <script>
@@ -442,8 +404,6 @@ for(var i=0;i<iconPost.length;i++){
 
 
 </script>
-
-
 
  
 </html>

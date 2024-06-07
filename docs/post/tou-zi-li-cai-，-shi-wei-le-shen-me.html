@@ -8,10 +8,6 @@
     <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
 
-    <!-- 引入Jquery和Pjax；pjax基于Jquery框架 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
-
     <!-- Music Player-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
@@ -34,7 +30,6 @@
 
 
 </head>
-
 <style>
     body {
         box-sizing: border-box;
@@ -80,10 +75,8 @@
 
 
 
-
 <body>
-    <div id="pjax-container">
-        <div id="header">
+    <div id="header">
 <h1 class="postTitle">投资理财，是为了什么</h1>
 <div class="title-right">
     <a href="https://ChanForWang.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
@@ -107,7 +100,7 @@
 
 </div>
 </div>
-        <div id="content">
+    <div id="content">
 <div class="markdown-body" id="postBody"><p>之前，看到一篇公众号，提出一个很好的问题：你投资理财，到底是为了什么？！<br>
 也许你会说，这不废话嘛，当然是为了财富自由，早日退休吖！</p>
 <p>这个回答表面乍一看没啥问题，但事实上，这样的回答是十分的含糊不清，让人摸不着头脑的（答案缺失焦点，压根不知要干嘛，换句话说，不知道如何执行和实现这所谓“目标”）。因为每个人对财富自由的定义都是不同的，那到底多少才能满足你心中“自由”的那个度呢？又该如何一步步去实现它呢？</p>
@@ -190,22 +183,17 @@ Influence</strong><br>
 <p>这对于我而言，就是在实现自我价值和探寻个人人生意义价值所在！！！</p>
 <p>Wish us all the best!</p></div>
 <span class="PostTime">📅2024-04-24</span>
+
+
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
-    </div>
-
-    <div id="footer">
-
-Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
 <p>
     <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
     <span>/</span><a href="https://github.com/ChanForWang/ChanForWang.github.io/issues" target="_blank">Blog</a>
 </p>
-
-<!-- Music Player-->
-<div id="aplayer"></div>
 
 <script>
     if ("03/28/2024" != "") {
@@ -220,8 +208,11 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
             document.getElementById("runday").innerHTML = "网站运行" + diffDay + "天" + " • ";
         }
     }
-</script>
-<!--添加aplayer的js，以html形式导入-->
+</script></div>
+    <!-- Music Player-->
+    <div id="aplayer"></div>
+
+</body>
 <script>
     var ap = new APlayer({
         element: document.getElementById('aplayer'),
@@ -275,8 +266,6 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
     });
 
 </script>
-</div>
-</body>
 
 
 <script>
@@ -309,18 +298,6 @@ function utterancesTheme(theme){
 }
 if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/ChanForWang/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
-
-
-<!--Pjax-->
-if($.support.pjax){
-    console.log('支持pjax');
-    // 初始化Pjax
-    $(document).pjax('a', '#pjax-container');
-    }
-    else{
-        console.warn('不支持pjax')
-    };
-
 </script>
 
 <script>

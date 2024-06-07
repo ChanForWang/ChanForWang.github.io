@@ -8,10 +8,6 @@
     <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
     <link rel="icon" href="https://i.ibb.co/dkKbsNN/logo.png">
 
-    <!-- 引入Jquery和Pjax；pjax基于Jquery框架 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
-
     <!-- Music Player-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script>
@@ -230,7 +226,6 @@ while True:
 
 
 </head>
-
 <style>
     body {
         box-sizing: border-box;
@@ -276,10 +271,8 @@ while True:
 
 
 
-
 <body>
-    <div id="pjax-container">
-        <div id="header">
+    <div id="header">
 <h1 class="postTitle">邮件定期发送--自动化python脚本</h1>
 <div class="title-right">
     <a href="https://ChanForWang.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
@@ -303,7 +296,7 @@ while True:
 
 </div>
 </div>
-        <div id="content">
+    <div id="content">
 <div class="markdown-body" id="postBody"><p>因为工作原因，每周周四团队的秘书就会要求我们更新最新一个礼拜的weekly schedule (excel)，透过邮件发给她，因为除了修改excel的内容，其他可谓都是重复性的动作(写发邮件，上传附件等)，事虽小，但很浪费时间，且自己也总是忘记；</p>
 <p>因此今天上班突发奇想：能不能创建一个自动化的流程来自动执行这一切，自己只需更新个人shedule就好！？</p>
 <p>然后说干就干，仔细思考了下整个流程逻辑：<br>
@@ -393,22 +386,17 @@ while True:
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/ef915d93-e8a7-4f9c-bf50-946285a1beb5"><img src="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/ef915d93-e8a7-4f9c-bf50-946285a1beb5" alt="image" style="max-width: 100%;"></a><br>
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/cc094559-2111-4d77-886d-d1bb1c264f0a"><img src="https://github.com/ChanForWang/ChanForWang.github.io/assets/52204491/cc094559-2111-4d77-886d-d1bb1c264f0a" alt="image" style="max-width: 100%;"></a></p></div>
 <span class="PostTime">📅2024-04-22</span>
+
+
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
-    </div>
-
-    <div id="footer">
-
-Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH INDA HOUSE </a>
 <p>
     <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
     <span>/</span><a href="https://github.com/ChanForWang/ChanForWang.github.io/issues" target="_blank">Blog</a>
 </p>
-
-<!-- Music Player-->
-<div id="aplayer"></div>
 
 <script>
     if ("03/28/2024" != "") {
@@ -423,8 +411,11 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
             document.getElementById("runday").innerHTML = "网站运行" + diffDay + "天" + " • ";
         }
     }
-</script>
-<!--添加aplayer的js，以html形式导入-->
+</script></div>
+    <!-- Music Player-->
+    <div id="aplayer"></div>
+
+</body>
 <script>
     var ap = new APlayer({
         element: document.getElementById('aplayer'),
@@ -478,8 +469,6 @@ Copyright © <span id="year"></span><a href="https://ChanForWang.github.io"> KH 
     });
 
 </script>
-</div>
-</body>
 
 
 <script>
@@ -512,18 +501,6 @@ function utterancesTheme(theme){
 }
 if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 console.log("\n %c Gmeek last https://github.com/ChanForWang/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
-
-
-<!--Pjax-->
-if($.support.pjax){
-    console.log('支持pjax');
-    // 初始化Pjax
-    $(document).pjax('a', '#pjax-container');
-    }
-    else{
-        console.warn('不支持pjax')
-    };
-
 </script>
 
 <script>
