@@ -198,6 +198,85 @@
         ]
     });
 
+
+    function doStuff() {
+    var flag = 0; // 用于标记是否成功获取到了aplayer对象
+
+    try {
+        ap = ap; //获取aplayer实例对象
+        ap.list; //获取aplayer对象的list属性，用于控制播放列表
+        flag = 1; // 如果没有抛出异常，则设置flag为1表示成功获取到了aplayer对象
+        console.log('成功获取aplayer实例对象', ap.list)
+    } catch (error) {
+        setTimeout(doStuff, 50); // 如果获取aplayer对象失败，则等待50毫秒后再尝试
+        console.error("不获取aplayer实例对象，并捕获到错误：", error);
+        return;
+    }
+
+    if (flag) { // 如果成功获取到了aplayer对象
+        document.getElementsByClassName("aplayer-icon-menu")[0].click() // 模拟点击播放器右上角的菜单按钮
+
+        // 检查是否有保存的音乐索引
+        if (localStorage.getItem("musicIndex") != null) {
+            musicIndex = localStorage.getItem("musicIndex"); // 从localStorage中获取音乐索引，即目前在播放哪一首歌！
+            ap.list.switch(musicIndex); // 切换到指定的音乐索引
+        }
+
+        // 检查是否有保存的音乐时间
+        if (sessionStorage.getItem("musicTime") != null) {
+            window.musict = sessionStorage.getItem("musicTime"); // 从sessionStorage中获取音乐时间
+            ap.setMode(sessionStorage.getItem("musicMode")); // 设置播放模式
+            if (sessionStorage.getItem("musicPaused") != '1') { // 检查是否是暂停状态，1是播放，0是暂停
+                ap.play();
+            }
+
+            var g = true; //加个变量以防鬼畜但是不知道怎么节流qwq；// 添加一个变量g，用于控制是否可以进行seek操作
+            ap.on("canplay", function() { // 当音乐可以播放时
+                if (g) {
+                    ap.seek(window.musict); // 跳转到指定的音乐时间
+                    g = false; //如果不加oncanplay的话会seek失败就这原因炸很久；// 修改g的值，避免多次调用seek方法
+                }
+            });
+        } else {
+            sessionStorage.setItem("musicPaused", 1); // 如果没有保存音乐时间，则将音乐设为暂停状态
+            ap.setMode("mini"); // 将播放器设置为迷你模式
+        }
+
+        // 检查是否有保存的音量设置
+        if (sessionStorage.getItem("musicVolume") != null) {
+            ap.audio.volume = Number(sessionStorage.getItem("musicVolume")); // 设置音量
+        }
+
+        // 当音乐暂停时
+        ap.on("pause", function() {
+            sessionStorage.setItem("musicPaused", 1); // 更新sessionStorage中的音乐为暂停状态
+        }); //原基础上加了个检测暂停免得切换页面后爆零(bushi)（指社死）
+
+        // 当音乐播放时
+        ap.on("play", function() {
+            sessionStorage.setItem("musicPaused", 0); // 更新sessionStorage中的音乐为播放状态
+        });
+
+        // 当音量发生变化时
+        ap.audio.onvolumechange = function() {
+            sessionStorage.setItem("musicVolume", ap.audio.volume); // 更新sessionStorage中的音量设置
+        }; //新版增加保存音量免得切换页面爆零
+
+
+        // 使用setInterval函数定期执行以下代码，即每隔200ms就更新一次播放状态和进度
+        setInterval(function() {
+            musicIndex = ap.list.index; // 获取当前播放的音乐索引(歌曲的索引，index=0 为第一首歌)
+            musicTime = ap.audio.currentTime; // 获取当前音乐的播放时间
+            musicMode = ap.mode; //获取当前音乐的播放模式
+            localStorage.setItem("musicIndex", musicIndex); // 保存当前播放的音乐索引到localStorage
+            sessionStorage.setItem("musicTime", musicTime); // 保存当前音乐的播放时间(进度)到sessionStorage
+            sessionStorage.setItem("musicMode", musicMode); // 保存当前的播放模式到sessionStorage
+        }, 200); // 每200毫秒更新一次播放状态和进度；节流，200ms精度感知不大
+    };
+};
+
+doStuff();
+
 </script>
 
 
