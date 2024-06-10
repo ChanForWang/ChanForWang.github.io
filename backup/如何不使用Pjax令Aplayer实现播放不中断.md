@@ -137,7 +137,9 @@
     };
 };
 
-doStuff();
+window.onload = function() {
+    doStuff();
+};
 
 </script>
 ```
