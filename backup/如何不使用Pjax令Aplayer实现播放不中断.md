@@ -142,6 +142,11 @@ doStuff();
 </script>
 ```
 
+## Remarks
+
+小小的美中不足便是跳转或刷新页面时，会暂停1秒作用，这是因为在读取状态。
+未来看如何优化之
+
 ## 参考
 
 [不开pjax的APlayer不中断解决方案](https://yisous.xyz/posts/614f1131/)
