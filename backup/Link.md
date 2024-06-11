@@ -17,9 +17,9 @@
 ❌ 不接受违反中华人民共和国法律法规的站点
 
 如果符合如上条件，可在本页面评论区留言您的友链信息
-> :point_right: name: KH INDA HOUSE
-> :point_right:url: https://chanforwang.github.io/
-> :point_right:avatar: https://i.ibb.co/dkKbsNN/logo.png
-> :point_right:desc: 去有风的地方
+> :point_right: Name: KH INDA HOUSE
+> :point_right:Url: https://chanforwang.github.io/
+> :point_right:Avatar: https://i.ibb.co/dkKbsNN/logo.png
+> :point_right:Desc: 去有风的地方
 
 申请前记得先添加本站哦~
