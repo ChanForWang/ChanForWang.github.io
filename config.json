@@ -5,7 +5,7 @@
     "GMEEK_VERSION":"last",
     "startSite":"03/28/2024",
     "onePageListNum":15,
-    "singlePage":["about"],
+    "singlePage":["about","link"],
     "dayTheme":"light",
     "nightTheme":"dark_colorblind",
     "bottomText":"❤️ 转载文章请注明出处，谢谢！❤️"
