@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>INDA HOUSE</title><link>https://ChanForWang.github.io</link><description>去有风的地方</description><copyright>INDA HOUSE</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.ibb.co/dkKbsNN/logo.png</url><title>avatar</title><link>https://ChanForWang.github.io</link></image><lastBuildDate>Wed, 12 Jun 2024 16:09:34 +0000</lastBuildDate><managingEditor>INDA HOUSE</managingEditor><ttl>60</ttl><webMaster>INDA HOUSE</webMaster><item><title>如何不使用Pjax令Aplayer实现播放不中断</title><link>https://ChanForWang.github.io/post/ru-he-bu-shi-yong-Pjax-ling-Aplayer-shi-xian-bo-fang-bu-zhong-duan.html</link><description>## 前言&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>INDA HOUSE</title><link>https://ChanForWang.github.io</link><description>去有风的地方</description><copyright>INDA HOUSE</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://i.ibb.co/dkKbsNN/logo.png</url><title>avatar</title><link>https://ChanForWang.github.io</link></image><lastBuildDate>Wed, 12 Jun 2024 16:14:22 +0000</lastBuildDate><managingEditor>INDA HOUSE</managingEditor><ttl>60</ttl><webMaster>INDA HOUSE</webMaster><item><title>如何不使用Pjax令Aplayer实现播放不中断</title><link>https://ChanForWang.github.io/post/ru-he-bu-shi-yong-Pjax-ling-Aplayer-shi-xian-bo-fang-bu-zhong-duan.html</link><description>## 前言&#13;
 &#13;
 因为我很喜欢在个人博客中实现音乐播放功能，而aplayer则是这其中一个超级轻便简洁的网页播放器，但有个问题就是：&#13;
 &gt;[!Warning]&#13;
@@ -261,6 +261,7 @@ while True:&#13;
 &#13;
 - [Emoji on Markdown](https://gist.github.com/rxaviers/7360908)&#13;
 - [OneDrive外链](https://onedrive.gimhoy.com/)&#13;
+- [Google站点收录方式](https://www.cnblogs.com/tzhuwb/p/16460829.html)&#13;
 &#13;
 ### 友链申请要求：&#13;
 ✅ 网站能够正常访问&#13;

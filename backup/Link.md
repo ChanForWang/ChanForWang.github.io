@@ -7,6 +7,7 @@
 
 - [Emoji on Markdown](https://gist.github.com/rxaviers/7360908)
 - [OneDrive外链](https://onedrive.gimhoy.com/)
+- [Google站点收录方式](https://www.cnblogs.com/tzhuwb/p/16460829.html)
 
 ### 友链申请要求：
 ✅ 网站能够正常访问
